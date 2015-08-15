@@ -4,7 +4,7 @@
 # Config Github Settings
 github_username = "BeSnappy"
 github_repo     = "Snaprobash"
-github_branch   = "1.4.0"
+github_branch   = "master"
 github_url      = "https://raw.githubusercontent.com/#{github_username}/#{github_repo}/#{github_branch}"
 
 # Because this:https://developer.github.com/changes/2014-12-08-removing-authorizations-token/
@@ -28,7 +28,7 @@ hostname        = "snappy.local"
 server_ip             = "192.168.22.10"
 server_cpus           = "1"   # Cores
 server_memory         = "1024" # MB
-server_swap           = "768" # Options: false | int (MB) - Guideline: Between one or two times the server_memory
+server_swap           = "1024" # Options: false | int (MB) - Guideline: Between one or two times the server_memory
 
 # UTC        for Universal Coordinated Time
 # EST        for Eastern Standard Time
@@ -49,7 +49,7 @@ ruby_gems             = %w(sass compass)
 hhvm                  = "false"
 
 # PHP Options
-composer_packages     = %w(phpunit/phpunit:4.0.* laravel/installer:~1.2 laravel/envoy:~1.0)
+composer_packages     = %w(phpunit/phpunit:~4.0 laravel/installer:~1.2 laravel/envoy:~1.0)
 
 # Default web server document root
 # Symfony's public directory is assumed "web"
@@ -144,7 +144,7 @@ config.vm.synced_folder user_home, user_home,
   ##########
 
   # Provision Nginx Base
-  config.vm.provision "shell", path: "#{github_url}/scripts/nginx.sh", args: [server_ip, public_folder, hostname, github_url]
+  # config.vm.provision "shell", path: "#{github_url}/scripts/nginx.sh", args: [server_ip, public_folder, hostname, github_url]
 
 
   ####
@@ -168,7 +168,7 @@ config.vm.synced_folder user_home, user_home,
   # Install ElasticHQ
   # Admin for: Elasticsearch
   # Works on: Apache2, Nginx
-  config.vm.provision "shell", path: "#{github_url}/scripts/elastichq.sh"
+  # config.vm.provision "shell", path: "#{github_url}/scripts/elastichq.sh"
 
 
   ####
@@ -205,6 +205,6 @@ config.vm.synced_folder user_home, user_home,
   # Any local scripts you may want to run post-provisioning.
   # Add these to the same directory as the Vagrantfile.
   ##########
-  # config.vm.provision "shell", path: "./local-script.sh"
+  config.vm.provision "shell", path: "./local-script.sh"
 
 end

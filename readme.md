@@ -1,6 +1,6 @@
 # Snaprobash
 
-The local development VM we use at BsSnappy for all PHP &amp; Docker-based development.
+The local development VM we use at BeSnappy for all PHP &amp; Docker-based development.
 
 Based on Vaprobash from @fideloper.  Thanks, Chris!
 
